@@ -122,8 +122,8 @@ export async function decodeFSH(encodedFSH) {
     const promisedURL = await expandLink(encodedFSH);
 
     // Removes the encoded data from the end of the url, starting at index 38
-    const sliced64 = promisedURL.long_url.slice(40);
-    if (!promisedURL.long_url.includes('https://fshschool.org/FSHOnline/#/share/') || sliced64.length === 0) {
+    const sliced64 = promisedURL.long_url.slice(37);
+    if (!promisedURL.long_url.includes('https://fshonline.chrism.org/#/share/') || sliced64.length === 0) {
       return '';
     } else {
       const displayText = inflateSync(Buffer.from(sliced64, 'base64')).toString('utf-8');
